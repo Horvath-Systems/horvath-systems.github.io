@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
+      data-i18n-attr="content:meta.desc"
       content="Horvath Systems — modern szoftverfejlesztés, automatizálás, web és app megoldások."
     />
     <meta name="theme-color" content="#04060a" />
-    <title>Horvath Systems</title>
+    <title data-i18n="meta.title">Horvath Systems</title>
 
     <link rel="icon" href="assets/icon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,7 +19,6 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;700&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="styles.css" />
   </head>
 
@@ -34,7 +34,7 @@
     <!-- Top bar -->
     <header class="header" id="top">
       <div class="container header-inner">
-        <a class="brand" href="" aria-label="Horvath Systems Home">
+        <a class="brand" href="index.html#top" data-i18n-attr="aria-label:meta.title" aria-label="Horvath Systems">
           <img class="brand-logo" src="assets/logo.png" alt="Horvath Systems logo" />
           <div class="brand-text">
             <span class="brand-name">HORVATH</span>
@@ -43,68 +43,78 @@
         </a>
 
         <nav class="nav" aria-label="Main navigation">
-          <a href="#services">Szolgáltatások</a>
-          <a href="#projects">Projektek</a>
-          <a href="#about">Rólam</a>
-          <a href="#contact">Kapcsolat</a>
+          <a href="#services" data-i18n="nav.services">Szolgáltatások</a>
+          <a href="#projects" data-i18n="nav.projects">Projektek</a>
+          <a href="#about" data-i18n="nav.about">Rólam</a>
+          <a href="#contact" data-i18n="nav.contact">Kapcsolat</a>
         </nav>
 
         <div class="header-actions">
-          <button class="btn btn-ghost" id="themeBtn" aria-label="Téma váltás">🌙</button>
-          <button class="btn btn-ghost burger" id="burger" aria-label="Menü">
+          <div class="lang" aria-label="Language switch">
+            <button class="btn btn-ghost btn-sm" type="button" data-lang="hu">HU</button>
+            <button class="btn btn-ghost btn-sm" type="button" data-lang="en">EN</button>
+          </div>
+
+          <button class="btn btn-ghost" id="themeBtn" aria-label="Theme toggle">🌙</button>
+
+          <button class="btn btn-ghost burger" id="burger" aria-label="Menu">
             <span></span><span></span><span></span>
           </button>
-          <a class="btn btn-primary" href="#contact">Kérj ajánlatot</a>
+
+          <a class="btn btn-primary" href="#contact" data-i18n="cta.quote">Kérj ajánlatot</a>
         </div>
       </div>
 
       <div class="mobile-nav" id="mobileNav">
-        <a href="#services">Szolgáltatások</a>
-        <a href="#projects">Projektek</a>
-        <a href="#about">Rólam</a>
-        <a href="#contact">Kapcsolat</a>
-        <a class="btn btn-primary" href="#contact">Kérj ajánlatot</a>
+        <a href="#services" data-i18n="nav.services">Szolgáltatások</a>
+        <a href="#projects" data-i18n="nav.projects">Projektek</a>
+        <a href="#about" data-i18n="nav.about">Rólam</a>
+        <a href="#contact" data-i18n="nav.contact">Kapcsolat</a>
+        <a href="privacy_policies.html" data-i18n="nav.privacy">Privacy Policy</a>
+        <a href="terms.html" data-i18n="nav.terms">Terms</a>
+        <a href="support.html" data-i18n="nav.support">Support</a>
+        <a class="btn btn-primary" href="#contact" data-i18n="cta.quote">Kérj ajánlatot</a>
       </div>
     </header>
 
-    <!-- Hero -->
     <main>
+      <!-- Hero -->
       <section class="hero">
         <div class="container hero-inner">
           <div class="hero-left">
             <div class="pill">
               <span class="dot"></span>
-              <span>Modern web • app • automatizálás</span>
+              <span data-i18n="hero.pill">Modern web • app • automatizálás</span>
             </div>
 
             <h1>
-              <span class="h1-top">Buildeljünk</span>
-              <span class="h1-glow">menő</span>
-              <span class="h1-top">rendszereket.</span>
+              <span class="h1-top" data-i18n="hero.h1a">Buildeljünk</span>
+              <span class="h1-glow" data-i18n="hero.h1b">menő</span>
+              <span class="h1-top" data-i18n="hero.h1c">rendszereket.</span>
             </h1>
 
-            <p class="lead">
+            <p class="lead" data-i18n="hero.lead">
               Horvath Systems — gyors, tiszta és skálázható megoldások. Weboldalak, admin felületek, mobil appok,
               integrációk, automatizálás.
             </p>
 
             <div class="cta">
-              <a class="btn btn-primary" href="#projects">Nézd a munkáim</a>
-              <a class="btn btn-ghost" href="#services">Mit csinálok?</a>
+              <a class="btn btn-primary" href="#projects" data-i18n="cta.work">Nézd a munkáim</a>
+              <a class="btn btn-ghost" href="#services" data-i18n="cta.what">Mit csinálok?</a>
             </div>
 
             <div class="stats">
               <div class="stat">
                 <span class="stat-num" data-count="24">0</span>
-                <span class="stat-label">hónap+ projekt tapasztalat</span>
+                <span class="stat-label" data-i18n="stats.exp">hónap+ projekt tapasztalat</span>
               </div>
               <div class="stat">
                 <span class="stat-num" data-count="12">0</span>
-                <span class="stat-label">aktív tech stack elem</span>
+                <span class="stat-label" data-i18n="stats.stack">aktív tech stack elem</span>
               </div>
               <div class="stat">
                 <span class="stat-num" data-count="99">0</span>
-                <span class="stat-label">% “clean” vibe</span>
+                <span class="stat-label" data-i18n="stats.vibe">% “clean” vibe</span>
               </div>
             </div>
           </div>
@@ -112,8 +122,8 @@
           <div class="hero-right">
             <div class="hero-card">
               <div class="hero-card-top">
-                <span class="chip">Status</span>
-                <span class="chip chip-good">Available</span>
+                <span class="chip" data-i18n="hero.status">Status</span>
+                <span class="chip chip-good" data-i18n="hero.available">Available</span>
               </div>
 
               <div class="logo-wrap">
@@ -122,21 +132,21 @@
 
               <div class="hero-card-bottom">
                 <div class="mini">
-                  <span class="mini-k">Specialty</span>
-                  <span class="mini-v">Systems • UI • Automation</span>
+                  <span class="mini-k" data-i18n="hero.specialty">Specialty</span>
+                  <span class="mini-v" data-i18n="hero.specialty.val">Systems • UI • Automation</span>
                 </div>
                 <div class="mini">
-                  <span class="mini-k">Delivery</span>
-                  <span class="mini-v">Fast &amp; clean</span>
+                  <span class="mini-k" data-i18n="hero.delivery">Delivery</span>
+                  <span class="mini-v" data-i18n="hero.delivery.val">Fast &amp; clean</span>
                 </div>
               </div>
             </div>
 
             <div class="floating">
-              <div class="float-item">⚡ Performance</div>
-              <div class="float-item">🛡️ Security</div>
-              <div class="float-item">🔌 Integrations</div>
-              <div class="float-item">📱 Mobile</div>
+              <div class="float-item" data-i18n="float.performance">⚡ Performance</div>
+              <div class="float-item" data-i18n="float.security">🛡️ Security</div>
+              <div class="float-item" data-i18n="float.integrations">🔌 Integrations</div>
+              <div class="float-item" data-i18n="float.mobile">📱 Mobile</div>
             </div>
           </div>
         </div>
@@ -146,15 +156,17 @@
       <section class="section" id="services">
         <div class="container">
           <div class="section-head">
-            <h2>Szolgáltatások</h2>
-            <p>Olyan megoldásokat építek, amik gyorsak, stabilak, és jól néznek ki.</p>
+            <h2 data-i18n="services.title">Szolgáltatások</h2>
+            <p data-i18n="services.lead">Olyan megoldásokat építek, amik gyorsak, stabilak, és jól néznek ki.</p>
           </div>
 
           <div class="cards">
             <article class="card">
               <div class="card-icon">🌐</div>
-              <h3>Web fejlesztés</h3>
-              <p>Landing, portfólió, céges site, admin dashboard — modern UI, gyors betöltés, SEO alapok.</p>
+              <h3 data-i18n="services.web.title">Web fejlesztés</h3>
+              <p data-i18n="services.web.desc">
+                Landing, portfólió, céges site, admin dashboard — modern UI, gyors betöltés, SEO alapok.
+              </p>
               <ul class="tags">
                 <li>HTML/CSS/JS</li>
                 <li>React</li>
@@ -164,8 +176,10 @@
 
             <article class="card">
               <div class="card-icon">📱</div>
-              <h3>Mobil app</h3>
-              <p>Flutter alapú appok, export/import, offline tárolás, QR/scan, beállítások, multi-nyelv.</p>
+              <h3 data-i18n="services.mobile.title">Mobil app</h3>
+              <p data-i18n="services.mobile.desc">
+                Flutter alapú appok, export/import, offline tárolás, QR/scan, beállítások, multi-nyelv.
+              </p>
               <ul class="tags">
                 <li>Flutter</li>
                 <li>Android</li>
@@ -175,8 +189,10 @@
 
             <article class="card">
               <div class="card-icon">⚙️</div>
-              <h3>Automatizálás</h3>
-              <p>Scriptek, folyamatok, integrációk, értesítések — hogy kevesebb legyen a kézi meló.</p>
+              <h3 data-i18n="services.auto.title">Automatizálás</h3>
+              <p data-i18n="services.auto.desc">
+                Scriptek, folyamatok, integrációk, értesítések — hogy kevesebb legyen a kézi meló.
+              </p>
               <ul class="tags">
                 <li>Python</li>
                 <li>Windows</li>
@@ -186,8 +202,10 @@
 
             <article class="card">
               <div class="card-icon">🔐</div>
-              <h3>Stabilitás &amp; hardening</h3>
-              <p>Alap biztonsági beállítások, hibakeresés, teljesítmény tuning, deploy és karbantartás.</p>
+              <h3 data-i18n="services.sec.title">Stabilitás &amp; hardening</h3>
+              <p data-i18n="services.sec.desc">
+                Alap biztonsági beállítások, hibakeresés, teljesítmény tuning, deploy és karbantartás.
+              </p>
               <ul class="tags">
                 <li>Deploy</li>
                 <li>Logs</li>
@@ -202,46 +220,53 @@
       <section class="section" id="projects">
         <div class="container">
           <div class="section-head">
-            <h2>Projektek</h2>
+            <h2 data-i18n="projects.title">Projektek</h2>
+            <p data-i18n="projects.lead">Válogatott munkák és példa projektek.</p>
           </div>
 
           <div class="projects">
             <article class="project">
               <div class="project-top">
-                <span class="badge">Featured</span>
+                <span class="badge" data-i18n="proj.badge.featured">Featured</span>
                 <span class="muted">2026</span>
               </div>
-              <h3>Könyvkezelő (Flutter)</h3>
-              <p>Import/Export, QR scan, local storage, HU/EN nyelv — letisztult UI és gyors workflow.</p>
+              <h3 data-i18n="proj.book.title">Könyvkezelő (Flutter)</h3>
+              <p data-i18n="proj.book.desc">
+                Import/Export, QR scan, local storage, HU/EN nyelv — letisztult UI és gyors workflow.
+              </p>
               <div class="project-actions">
-                <a class="btn btn-ghost btn-sm" href="#" aria-label="Demo link">Demo</a>
-                <a class="btn btn-primary btn-sm" href="#" aria-label="GitHub link">GitHub</a>
+                <a class="btn btn-ghost btn-sm" href="#" data-i18n="btn.demo">Demo</a>
+                <a class="btn btn-primary btn-sm" href="#" data-i18n="btn.github">GitHub</a>
               </div>
             </article>
 
             <article class="project">
               <div class="project-top">
-                <span class="badge">Systems</span>
+                <span class="badge" data-i18n="proj.badge.systems">Systems</span>
                 <span class="muted">2026</span>
               </div>
-              <h3>Automation Toolkit</h3>
-              <p>Windows toolok: tray ikon, config reload, log viewer, értesítések — “set and forget”.</p>
+              <h3 data-i18n="proj.auto.title">Automation Toolkit</h3>
+              <p data-i18n="proj.auto.desc">
+                Windows toolok: tray ikon, config reload, log viewer, értesítések — “set and forget”.
+              </p>
               <div class="project-actions">
-                <a class="btn btn-ghost btn-sm" href="#">Részletek</a>
-                <a class="btn btn-primary btn-sm" href="#">GitHub</a>
+                <a class="btn btn-ghost btn-sm" href="#" data-i18n="btn.details">Részletek</a>
+                <a class="btn btn-primary btn-sm" href="#" data-i18n="btn.github">GitHub</a>
               </div>
             </article>
 
             <article class="project">
               <div class="project-top">
-                <span class="badge">Web</span>
+                <span class="badge" data-i18n="proj.badge.web">Web</span>
                 <span class="muted">2026</span>
               </div>
-              <h3>Modern landing + dashboard</h3>
-              <p>Sötét neon design, kártyák, statisztikák, animációk, reszponzív layout — “mai” feeling.</p>
+              <h3 data-i18n="proj.web.title">Modern landing + dashboard</h3>
+              <p data-i18n="proj.web.desc">
+                Sötét neon design, kártyák, statisztikák, animációk, reszponzív layout — “mai” feeling.
+              </p>
               <div class="project-actions">
-                <a class="btn btn-ghost btn-sm" href="#">Demo</a>
-                <a class="btn btn-primary btn-sm" href="#">GitHub</a>
+                <a class="btn btn-ghost btn-sm" href="#" data-i18n="btn.demo">Demo</a>
+                <a class="btn btn-primary btn-sm" href="#" data-i18n="btn.github">GitHub</a>
               </div>
             </article>
           </div>
@@ -252,8 +277,8 @@
       <section class="section" id="about">
         <div class="container about">
           <div class="about-left">
-            <h2>Rólam</h2>
-            <p>
+            <h2 data-i18n="about.title">Rólam</h2>
+            <p data-i18n="about.desc">
               “Build clean. Ship fast.” — szeretem a jól átlátható, stabil megoldásokat. Fontos: UI minőség,
               teljesítmény és a karbantarthatóság.
             </p>
@@ -270,27 +295,27 @@
             </div>
 
             <div class="about-actions">
-              <a class="btn btn-primary" href="#contact">Dolgozzunk együtt</a>
+              <a class="btn btn-primary" href="#contact" data-i18n="about.cta">Dolgozzunk együtt</a>
             </div>
           </div>
 
           <div class="about-right">
             <div class="glass">
               <div class="glass-row">
-                <span class="k">Brand</span>
+                <span class="k" data-i18n="glass.brand">Brand</span>
                 <span class="v">Horvath Systems</span>
               </div>
               <div class="glass-row">
-                <span class="k">Focus</span>
-                <span class="v">Systems • UI • Automation</span>
+                <span class="k" data-i18n="glass.focus">Focus</span>
+                <span class="v" data-i18n="glass.focus.val">Systems • UI • Automation</span>
               </div>
               <div class="glass-row">
-                <span class="k">Style</span>
-                <span class="v">Modern • Dark • Neon</span>
+                <span class="k" data-i18n="glass.style">Style</span>
+                <span class="v" data-i18n="glass.style.val">Modern • Dark • Neon</span>
               </div>
               <div class="glass-row">
-                <span class="k">Location</span>
-                <span class="v">HU / Remote</span>
+                <span class="k" data-i18n="glass.location">Location</span>
+                <span class="v" data-i18n="glass.location.val">HU / Remote</span>
               </div>
             </div>
 
@@ -298,7 +323,7 @@
               <img src="assets/logo.png" alt="" />
               <div>
                 <div class="sig-name">HORVATH SYSTEMS</div>
-                <div class="sig-sub">Portfolio / Landing</div>
+                <div class="sig-sub" data-i18n="sig.sub">Portfolio / Landing</div>
               </div>
             </div>
           </div>
@@ -309,39 +334,50 @@
       <section class="section" id="contact">
         <div class="container">
           <div class="section-head">
-            <h2>Kapcsolat</h2>
+            <h2 data-i18n="contact.title">Kapcsolat</h2>
           </div>
 
           <div class="contact">
             <div class="contact-card">
-              <h3>Gyors elérhetőség</h3>
+              <h3 data-i18n="contact.quick">Gyors elérhetőség</h3>
               <p class="muted">
-                Email: <a href="mailto:Horvath-Systems@proton.me">Horvath-Systems@proton.me</a><br />
-                GitHub: <a href="#" target="_blank" rel="noreferrer">github.com/horvath-systems</a>
+                <span data-i18n="contact.email">Email</span>:
+                <a href="mailto:Horvath-Systems@proton.me">Horvath-Systems@proton.me</a><br />
+                <span data-i18n="contact.github">GitHub</span>:
+                <a href="#" target="_blank" rel="noreferrer">github.com/horvath-systems</a>
               </p>
 
               <div class="contact-actions">
                 <a
                   class="btn btn-primary"
+                  data-i18n="contact.send"
+                  data-i18n-attr="href:mailto.quote"
                   href="mailto:Horvath-Systems@proton.me?subject=Ajánlatkérés%20—%20Horvath%20Systems"
                 >
                   Email küldése
                 </a>
-                <button class="btn btn-ghost" id="copyBtn" data-copy="Horvath-Systems@proton.me">Email másolása</button>
+                <button
+                  class="btn btn-ghost"
+                  id="copyBtn"
+                  data-copy="Horvath-Systems@proton.me"
+                  data-i18n="contact.copy"
+                >
+                  Email másolása
+                </button>
               </div>
 
               <div class="toast" id="toast" role="status" aria-live="polite"></div>
             </div>
 
             <div class="contact-card alt">
-              <h3>Mit írj bele?</h3>
+              <h3 data-i18n="contact.list.title">Mit írj bele?</h3>
               <ul class="checklist">
-                <li>Mit szeretnél (web/app/automatizálás)?</li>
-                <li>Határidő és költségkeret (ha van).</li>
-                <li>Van-e design / minta / referencia?</li>
-                <li>Kapcsolat: email / Discord.</li>
+                <li data-i18n="contact.list.1">Mit szeretnél (web/app/automatizálás)?</li>
+                <li data-i18n="contact.list.2">Határidő és költségkeret (ha van).</li>
+                <li data-i18n="contact.list.3">Van-e design / minta / referencia?</li>
+                <li data-i18n="contact.list.4">Kapcsolat: email / Discord.</li>
               </ul>
-              <div class="mini-note">24 órán belül általában válaszolok.</div>
+              <div class="mini-note" data-i18n="contact.note">24 órán belül általában válaszolok.</div>
             </div>
           </div>
         </div>
@@ -359,17 +395,24 @@
           </div>
 
           <div class="footer-right">
-            <a href="#top">Top</a>
+            <a href="#services" data-i18n="nav.services">Services</a>
             <span class="sep">•</span>
-            <a href="#services">Services</a>
+            <a href="#projects" data-i18n="nav.projects">Projects</a>
             <span class="sep">•</span>
-            <a href="#projects">Projects</a>
+            <a href="#contact" data-i18n="nav.contact">Contact</a>
             <span class="sep">•</span>
-            <a href="#contact">Contact</a>
+            <a href="privacy_policies.html" data-i18n="nav.privacy">Privacy Policy</a>
+            <span class="sep">•</span>
+            <a href="terms.html" data-i18n="nav.terms">Terms</a>
+            <span class="sep">•</span>
+            <a href="support.html" data-i18n="nav.support">Support</a>
           </div>
         </div>
+
         <div class="container footer-bottom">
-          <span>© <span id="year"></span> Horvath-Systems. All rights reserved.</span>
+          <span data-i18n-html="footer.rights.html"
+            >© <span id="year"></span> Horvath-Systems. All rights reserved.</span
+          >
         </div>
       </footer>
     </main>

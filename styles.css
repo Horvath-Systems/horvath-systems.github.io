@@ -618,3 +618,23 @@ body.light .glass{ box-shadow: 0 18px 60px rgba(10,18,32,.10); }
   .cards{ grid-template-columns: 1fr; }
   .hero{ padding-top: 62px; }
 }
+/* Language switcher */
+.lang {
+  display: inline-flex;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(120,180,255,.12);
+}
+
+.lang .btn {
+  padding: 8px 10px;
+  border-radius: 999px;
+}
+
+.lang .btn.active {
+  border-color: rgba(0,245,255,.35);
+  box-shadow: 0 0 0 1px rgba(0,245,255,.12) inset;
+  background: rgba(0,245,255,.10);
+}
