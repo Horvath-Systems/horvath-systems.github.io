@@ -159,7 +159,18 @@ a{ color:inherit; text-decoration:none; }
   border-radius:999px;
 }
 
-/* (replaced) mobile-nav legacy styles removed */
+.mobile-nav{
+  display:none;
+  border-top: 1px solid rgba(120,180,255,.12);
+  padding: 12px 0 16px;
+}
+.mobile-nav a{
+  display:block;
+  padding: 12px 4vw;
+  color: rgba(233,238,249,.92);
+  font-weight:700;
+}
+.mobile-nav .btn{ margin: 10px 4vw 0; width: calc(100% - 8vw); }
 
 .hero{
   padding: 78px 0 26px;
@@ -627,201 +638,117 @@ body.light .glass{ box-shadow: 0 18px 60px rgba(10,18,32,.10); }
   box-shadow: 0 0 0 1px rgba(0,245,255,.12) inset;
   background: rgba(0,245,255,.10);
 }
-/* === Mobile hardening === */
-@media (max-width: 640px) {
-  .hero {
-    padding-top: 64px;
-  }
 
-  .hero-inner,
-  .about,
-  .contact {
-    grid-template-columns: 1fr !important;
-  }
+/* ==========================
+   Mobile drawer menu (clean)
+   ========================== */
+body.menu-open{ overflow: hidden; }
 
-  .hero-card,
-  .policy-card,
-  .glass,
-  .contact-card {
-    width: 100%;
-    max-width: 100%;
-    margin-inline: auto;
-  }
-
-  .logo-wrap img {
-    width: 100%;
-    max-width: 260px;
-  }
-}
-@media (max-width: 640px) {
-  .header-actions {
-    gap: 6px;
-  }
-
-  .header-actions .lang {
-    display: none;
-  }
-
-  .header-actions #themeBtn {
-    display: none;
-  }
-}
-@media (max-width: 640px) {
-  .footer-inner,
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  }
-
-  .footer-right {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .sep {
-    display: none;
-  }
-}
-@media (max-width: 640px) {
-  .policy-card h1 {
-    font-size: 30px;
-  }
-
-  .policy-actions {
-    flex-direction: column;
-  }
-
-  .policy-actions .btn {
-    width: 100%;
-  }
-}
-body {
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-.header {
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-}
-
-/* === Mobile menu: clean drawer (v2) === */
 .mobile-nav{
   display:none;
-  position:fixed;
-  inset:0;
-  z-index:1000;
-  background: rgba(0,0,0,.58);
-  backdrop-filter: blur(10px);
-  padding: 12px;
-  padding-top: calc(12px + env(safe-area-inset-top));
-  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  padding: calc(12px + env(safe-area-inset-top)) calc(12px + env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) calc(12px + env(safe-area-inset-left));
+  background: rgba(0,0,0,.78);
+  backdrop-filter: blur(14px);
 }
 
-body.menu-open{
-  overflow: hidden;
-  touch-action: none;
-}
+.mobile-nav.open{ display:block; }
 
-.mobile-nav.open{
-  display:flex;
-  align-items:flex-start;
-  justify-content:flex-end;
-}
-
-/* right-side drawer */
 .mobile-sheet{
-  width: min(420px, 92vw);
-  max-height: calc(100dvh - 24px - env(safe-area-inset-top));
-  overflow:auto;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  bottom: 12px;
+  width: min(420px, calc(100% - 24px));
   border-radius: 22px;
-  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+  background: rgba(6,10,18,.96);
   border: 1px solid rgba(120,180,255,.18);
-  box-shadow: 0 22px 90px rgba(0,0,0,.62);
-  animation: drawerIn .18s ease-out;
-}
-
-@keyframes drawerIn{
-  from{ opacity:0; transform: translateX(12px) translateY(-2px); }
-  to{ opacity:1; transform: translateX(0) translateY(0); }
+  box-shadow: 0 22px 80px rgba(0,0,0,.65);
+  overflow: hidden;
+  display:flex;
+  flex-direction: column;
 }
 
 .mobile-sheet-head{
-  position: sticky;
-  top: 0;
-  z-index: 2;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  padding: 14px 14px 10px;
-  background: rgba(2,3,6,.55);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(120,180,255,.12);
+  justify-content: space-between;
+  padding: 14px 14px 12px;
+  border-bottom: 1px solid rgba(120,180,255,.14);
+  background: rgba(255,255,255,.03);
 }
 
 .mobile-sheet-title{
   font-family: Orbitron, Inter, sans-serif;
   letter-spacing: .14em;
+  text-transform: uppercase;
   font-weight: 800;
   font-size: 12px;
-  color: rgba(233,238,249,.9);
-  text-transform: uppercase;
+  color: rgba(233,238,249,.92);
 }
 
-.mobile-links{
-  padding: 10px 10px 4px;
+.mobile-sheet-body{
+  padding: 10px 10px 14px;
+  overflow:auto;
+  -webkit-overflow-scrolling: touch;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .mobile-links a{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  padding: 12px 14px;
-  margin: 8px 0;
+  justify-content: space-between;
+  padding: 14px 14px;
   border-radius: 16px;
   font-weight: 800;
-  color: rgba(233,238,249,.92);
-  background: rgba(0,0,0,.16);
-  border: 1px solid rgba(120,180,255,.12);
+  color: rgba(233,238,249,.94);
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(120,180,255,.14);
 }
 
-.mobile-links a:active{
-  transform: translateY(1px);
+.mobile-links a:hover{
+  border-color: rgba(0,245,255,.22);
+  box-shadow: 0 0 0 1px rgba(0,245,255,.08) inset;
 }
 
 .mobile-divider{
   height: 1px;
+  margin: 2px 6px;
   background: rgba(120,180,255,.12);
-  margin: 6px 14px;
 }
 
 .mobile-controls{
   display:flex;
-  gap: 10px;
   align-items:center;
-  justify-content:space-between;
-  padding: 10px 14px 12px;
-  border-top: 1px solid rgba(120,180,255,.12);
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 4px;
 }
 
 .mobile-controls .lang{
-  flex: 1 1 auto;
+  flex: 1;
+  justify-content: center;
 }
 
-.mobile-controls #themeBtnMobile{
-  flex: 0 0 auto;
-  width: 46px;
-  height: 42px;
+#themeBtnMobile{
+  width: 52px;
+  height: 44px;
   padding: 0;
 }
 
 .mobile-cta{
-  width: calc(100% - 28px);
-  margin: 0 14px 14px;
+  width: 100%;
   justify-content:center;
 }
 
-@media (max-width: 980px){
-  .mobile-nav{ padding: 12px; padding-top: calc(12px + env(safe-area-inset-top)); }
+/* Header cleanup on small screens: keep it clean */
+@media (max-width: 640px){
+  .header-actions .lang{ display:none; }
+  .header-actions #themeBtn{ display:none; }
+  .header-actions .btn-primary{ padding: 10px 12px; }
+  .brand-logo{ width: 38px; height: 38px; }
 }
