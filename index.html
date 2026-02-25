@@ -66,15 +66,39 @@
       </div>
 
       <div class="mobile-nav" id="mobileNav">
-        <a href="#services" data-i18n="nav.services">Szolgáltatások</a>
-        <a href="#projects" data-i18n="nav.projects">Projektek</a>
-        <a href="#about" data-i18n="nav.about">Rólam</a>
-        <a href="#contact" data-i18n="nav.contact">Kapcsolat</a>
-        <a href="privacy_policies.html" data-i18n="nav.privacy">Privacy Policy</a>
-        <a href="terms.html" data-i18n="nav.terms">Terms</a>
-        <a href="support.html" data-i18n="nav.support">Support</a>
-        <a class="btn btn-primary" href="#contact" data-i18n="cta.quote">Kérj ajánlatot</a>
+  <div class="mobile-sheet">
+    <div class="mobile-sheet-head">
+      <div class="mobile-sheet-title" data-i18n="menu.title">Menu</div>
+      <button class="btn btn-ghost btn-sm" type="button" id="closeMobileNav" aria-label="Close">✕</button>
+    </div>
+
+    <div class="mobile-links">
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </div>
+
+    <div class="mobile-divider"></div>
+
+    <div class="mobile-links">
+      <a href="privacy_policies.html" data-i18n="nav.privacy">Privacy Policy</a>
+      <a href="terms.html" data-i18n="nav.terms">Terms</a>
+      <a href="support.html" data-i18n="nav.support">Support</a>
+    </div>
+
+    <div class="mobile-controls">
+      <div class="lang" aria-label="Language switch">
+        <button class="btn btn-ghost btn-sm" type="button" data-lang="hu">HU</button>
+        <button class="btn btn-ghost btn-sm" type="button" data-lang="en">EN</button>
       </div>
+
+      <button class="btn btn-ghost" id="themeBtnMobile" type="button" aria-label="Theme toggle">🌙</button>
+    </div>
+
+    <a class="btn btn-primary mobile-cta" href="#contact" data-i18n="cta.quote">Request a quote</a>
+  </div>
+</div>
     </header>
 
     <main>

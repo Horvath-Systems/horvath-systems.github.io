@@ -24,22 +24,18 @@ const mobileNav = qs("#mobileNav");
 function closeMobileNav() {
   mobileNav?.classList.remove("open");
   burger?.classList.remove("open");
+  document.body.classList.remove("menu-open");
 }
 
 burger?.addEventListener("click", () => {
   mobileNav?.classList.toggle("open");
   burger?.classList.toggle("open");
+  const isOpen = mobileNav?.classList.contains("open");
+  document.body.classList.toggle("menu-open", !!isOpen);
 });
 
 qsa(".mobile-nav a").forEach((a) => a.addEventListener("click", closeMobileNav));
 
-// Add open animation style (keeps CSS minimal)
-const style = document.createElement("style");
-style.textContent = `
-  .mobile-nav.open{ display:block; animation: drop .18s ease-out; }
-  @keyframes drop { from{ opacity:0; transform: translateY(-6px);} to{ opacity:1; transform: translateY(0);} }
-`;
-document.head.appendChild(style);
 
 // -----------------------
 // Theme (dark/light)
@@ -109,7 +105,10 @@ async function loadLang(lang) {
   currentLang = safe;
 
   try {
-    const res = await fetch(`i18n/${safe}.json`, { cache: "no-store" });
+    const base = new URL('.', window.location.href);
+    const url = new URL(`i18n/${safe}.json`, base);
+    url.searchParams.set('v','1');
+    const res = await fetch(url.toString(), { cache: 'no-store' });
     if (!res.ok) throw new Error(`Failed to load i18n/${safe}.json`);
     I18N = await res.json();
   } catch (e) {
@@ -207,3 +206,18 @@ const io = new IntersectionObserver(
 );
 
 statNums.forEach((el) => io.observe(el));
+
+const closeBtn = document.querySelector("#closeMobileNav");
+closeBtn?.addEventListener("click", closeMobileNav);
+
+// close when clicking outside the sheet
+mobileNav?.addEventListener("click", (e) => {
+  if (e.target === mobileNav) closeMobileNav();
+});
+
+// theme button inside mobile drawer
+const themeBtnMobile = document.querySelector("#themeBtnMobile");
+themeBtnMobile?.addEventListener("click", () => {
+  const isLight = document.body.classList.contains("light");
+  setTheme(isLight ? "dark" : "light");
+});
