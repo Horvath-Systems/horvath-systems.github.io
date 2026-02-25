@@ -4,37 +4,6 @@ const qsa = (s, p = document) => [...p.querySelectorAll(s)];
 const yearEl = qs("#year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Mobile menu
-const burger = qs("#burger");
-const mobileNav = qs("#mobileNav");
-
-function closeMobileNav() {
-  mobileNav?.classList.remove("open");
-  burger?.classList.remove("open");
-  document.body.classList.remove("menu-open");
-  mobileNav?.setAttribute("aria-hidden", "true");
-}
-burger?.addEventListener("click", () => {
-  const willOpen = !mobileNav?.classList.contains("open");
-  mobileNav?.classList.toggle("open");
-  burger?.classList.toggle("open");
-  document.body.classList.toggle("menu-open", willOpen);
-  mobileNav?.setAttribute("aria-hidden", willOpen ? "false" : "true");
-});
-
-qsa(".mobile-nav a").forEach((a) =>
-  a.addEventListener("click", () => closeMobileNav())
-);
-
-// Close button inside drawer
-const closeBtn = qs("#closeMobileNav");
-closeBtn?.addEventListener("click", closeMobileNav);
-
-// Close when clicking outside the sheet
-mobileNav?.addEventListener("click", (e) => {
-  if (e.target === mobileNav) closeMobileNav();
-});
-
 // Theme (dark/light) with localStorage
 const themeBtn = qs("#themeBtn");
 const THEME_KEY = "hs_theme";
@@ -134,15 +103,18 @@ const LANG_KEY = "hs_lang";
 
 const I18N = {
   hu: {
+    "menu.title": "Menü",
+    "menu.site": "Oldal",
+    "menu.legal": "Jogi",
+    "nav.terms": "Felhasználási feltételek",
+    "nav.support": "Támogatás",
+
     // NAV + CTAs
     "nav.services": "Szolgáltatások",
     "nav.projects": "Projektek",
     "nav.about": "Rólam",
     "nav.contact": "Kapcsolat",
     "nav.privacy": "Adatkezelési tájékoztató",
-    "nav.terms": "Felhasználási feltételek",
-    "nav.support": "Támogatás",
-    "menu.title": "Menü",
     "cta.quote": "Kérj ajánlatot",
     "cta.work": "Nézd a munkáim",
     "cta.what": "Mit csinálok?",
@@ -205,9 +177,6 @@ const I18N = {
     "nav.about": "About",
     "nav.contact": "Contact",
     "nav.privacy": "Privacy Policy",
-    "nav.terms": "Terms",
-    "nav.support": "Support",
-    "menu.title": "Menu",
     "cta.quote": "Request a quote",
     "cta.work": "View my work",
     "cta.what": "What I do",
@@ -304,3 +273,54 @@ function initLangSwitcher() {
 }
 
 initLangSwitcher();
+
+// ===== Mobile menu (bulletproof) =====
+const burger = document.querySelector("#burger");
+const mobileNav = document.querySelector("#mobileNav");
+const closeBtn = document.querySelector("#closeMobileNav");
+
+function openMobileNav() {
+  if (!mobileNav) return;
+  mobileNav.classList.add("open");
+  document.body.classList.add("menu-open");
+  burger?.setAttribute("aria-expanded", "true");
+  mobileNav.setAttribute("aria-hidden", "false");
+}
+
+function closeMobileNav() {
+  if (!mobileNav) return;
+  mobileNav.classList.remove("open");
+  document.body.classList.remove("menu-open");
+  burger?.setAttribute("aria-expanded", "false");
+  mobileNav.setAttribute("aria-hidden", "true");
+}
+
+burger?.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (!mobileNav) return;
+  mobileNav.classList.contains("open") ? closeMobileNav() : openMobileNav();
+});
+
+closeBtn?.addEventListener("click", closeMobileNav);
+
+// close on overlay click (only if clicked outside the sheet)
+mobileNav?.addEventListener("click", (e) => {
+  if (e.target === mobileNav) closeMobileNav();
+});
+
+// close on ESC
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeMobileNav();
+});
+
+// close when clicking any menu link
+document.querySelectorAll("#mobileNav a").forEach((a) => {
+  a.addEventListener("click", () => closeMobileNav());
+});
+
+// mobile theme button
+const themeBtnMobile = document.querySelector("#themeBtnMobile");
+themeBtnMobile?.addEventListener("click", () => {
+  const isLight = document.body.classList.contains("light");
+  setTheme(isLight ? "dark" : "light");
+});

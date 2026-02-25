@@ -57,50 +57,47 @@
 
   <button class="btn btn-ghost" id="themeBtn" aria-label="Theme toggle">🌙</button>
 
-  <button class="btn btn-ghost burger" id="burger" aria-label="Menu">
+  <button class="btn btn-ghost burger" id="burger" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 
   <a class="btn btn-primary" href="#contact" data-i18n="cta.quote">Kérj ajánlatot</a>
 </div>
-
-      <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
   <div class="mobile-sheet" role="dialog" aria-modal="true" aria-label="Menu">
     <div class="mobile-sheet-head">
-      <div class="mobile-sheet-title" data-i18n="menu.title">Menu</div>
-      <button class="btn btn-ghost btn-sm" type="button" id="closeMobileNav" aria-label="Close">✕</button>
+      <div class="mobile-sheet-title" data-i18n="menu.title">Menü</div>
+      <button class="btn btn-ghost btn-sm" id="closeMobileNav" type="button" aria-label="Close">✕</button>
     </div>
 
-    <div class="mobile-sheet-body">
-      <div class="mobile-links">
-        <a href="#services" data-i18n="nav.services">Services</a>
-        <a href="#projects" data-i18n="nav.projects">Projects</a>
-        <a href="#about" data-i18n="nav.about">About</a>
-        <a href="#contact" data-i18n="nav.contact">Contact</a>
-      </div>
-
-      <div class="mobile-divider"></div>
-
-      <div class="mobile-links">
-        <a href="privacy_policies.html" data-i18n="nav.privacy">Privacy Policy</a>
-        <a href="terms.html" data-i18n="nav.terms">Terms</a>
-        <a href="support.html" data-i18n="nav.support">Support</a>
-      </div>
-
-      <div class="mobile-controls">
-        <div class="lang" aria-label="Language switch">
-          <button class="btn btn-ghost btn-sm" type="button" data-lang="hu">HU</button>
-          <button class="btn btn-ghost btn-sm" type="button" data-lang="en">EN</button>
-        </div>
-
-        <button class="btn btn-ghost" id="themeBtnMobile" type="button" aria-label="Theme toggle">🌙</button>
-      </div>
-
-      <a class="btn btn-primary mobile-cta" href="#contact" data-i18n="cta.quote">Request a quote</a>
+    <div class="mobile-links">
+      <a href="#services" data-i18n="nav.services">Szolgáltatások</a>
+      <a href="#projects" data-i18n="nav.projects">Projektek</a>
+      <a href="#about" data-i18n="nav.about">Rólam</a>
+      <a href="#contact" data-i18n="nav.contact">Kapcsolat</a>
     </div>
+
+    <div class="mobile-divider"></div>
+
+    <div class="mobile-links">
+      <a href="privacy_policies.html" data-i18n="nav.privacy">Adatkezelési tájékoztató</a>
+      <a href="terms.html" data-i18n="nav.terms">Feltételek</a>
+      <a href="support.html" data-i18n="nav.support">Támogatás</a>
+    </div>
+
+    <div class="mobile-controls">
+      <div class="lang" aria-label="Language switch">
+        <button class="btn btn-ghost btn-sm" type="button" data-lang="hu">HU</button>
+        <button class="btn btn-ghost btn-sm" type="button" data-lang="en">EN</button>
+      </div>
+
+      <button class="btn btn-ghost" id="themeBtnMobile" type="button" aria-label="Theme toggle">🌙</button>
+    </div>
+
+    <a class="btn btn-primary mobile-cta" href="#contact" data-i18n="cta.quote">Kérj ajánlatot</a>
   </div>
 </div>
-    </header>
+</header>
 
     <!-- Hero -->
     <main>
@@ -410,5 +407,43 @@
     </main>
 
     <script src="script.js"></script>
+  
+    <!-- Mobile Drawer -->
+    <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true">
+      <div class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Menu">
+        <div class="mobile-drawer-head">
+          <div class="mobile-drawer-title" data-i18n="menu.title">Menü</div>
+          <button class="btn btn-ghost btn-sm" type="button" id="closeMobileNav" aria-label="Close">✕</button>
+        </div>
+
+        <div class="mobile-drawer-body">
+          <div class="mobile-section">
+            <div class="mobile-section-title" data-i18n="menu.site">Oldal</div>
+            <a class="mobile-link" href="#services" data-i18n="nav.services">Szolgáltatások</a>
+            <a class="mobile-link" href="#projects" data-i18n="nav.projects">Projektek</a>
+            <a class="mobile-link" href="#about" data-i18n="nav.about">Rólam</a>
+            <a class="mobile-link" href="#contact" data-i18n="nav.contact">Kapcsolat</a>
+          </div>
+
+          <div class="mobile-section">
+            <div class="mobile-section-title" data-i18n="menu.legal">Jogi</div>
+            <a class="mobile-link" href="privacy_policies.html" data-i18n="nav.privacy">Adatkezelési tájékoztató</a>
+            <a class="mobile-link" href="terms.html" data-i18n="nav.terms">Felhasználási feltételek</a>
+            <a class="mobile-link" href="support.html" data-i18n="nav.support">Támogatás</a>
+          </div>
+
+          <div class="mobile-controls">
+            <div class="lang" aria-label="Language switch">
+              <button class="btn btn-ghost btn-sm" type="button" data-lang="hu">HU</button>
+              <button class="btn btn-ghost btn-sm" type="button" data-lang="en">EN</button>
+            </div>
+            <button class="btn btn-ghost" id="themeBtnMobile" type="button" aria-label="Theme toggle">🌙</button>
+          </div>
+
+          <a class="btn btn-primary mobile-cta" href="#contact" data-i18n="cta.quote">Kérj ajánlatot</a>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
