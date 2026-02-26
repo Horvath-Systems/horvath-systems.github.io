@@ -2,448 +2,215 @@
 <html lang="hu">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Horvath Systems — modern szoftverfejlesztés, automatizálás, web és app megoldások."
-    />
-    <meta name="theme-color" content="#04060a" />
-    <title>Horvath Systems</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Horvath-Systems</title>
+    <meta name="description" content="Horvath-Systems — modern, megbízható fejlesztői portfólió." />
     <link rel="icon" href="assets/icon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
 
   <body>
-    <!-- Background FX -->
-    <div class="bg">
-      <div class="grid"></div>
-      <div class="glow glow-a"></div>
-      <div class="glow glow-b"></div>
-      <div class="noise"></div>
-    </div>
+    <a class="skip-link" href="#content" data-i18n="skipToContent">Ugrás a tartalomra</a>
 
-    <!-- Top bar -->
-    <header class="header" id="top">
-      <div class="container header-inner">
-        <a class="brand" href="" aria-label="Horvath Systems Home">
-          <img class="brand-logo" src="assets/logo.png" alt="Horvath Systems logo" />
-          <div class="brand-text">
-            <span class="brand-name">HORVATH</span>
-            <span class="brand-sub">SYSTEMS</span>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="brand" href="#home" aria-label="Horvath-Systems">
+          <img class="brand__logo" src="assets/logo.png" alt="Horvath-Systems logo" />
+          <div class="brand__text">
+            <span class="brand__name">Horvath-Systems</span>
+            <span class="brand__tagline" data-i18n="tagline">Modern szoftvermegoldások, komoly kivitelben.</span>
           </div>
         </a>
 
-      <nav class="nav" aria-label="Main navigation">
-  <a href="#services" data-i18n="nav.services">Szolgáltatások</a>
-  <a href="#projects" data-i18n="nav.projects">Projektek</a>
-  <a href="#about" data-i18n="nav.about">Rólam</a>
-  <a href="#contact" data-i18n="nav.contact">Kapcsolat</a>
-</nav>
+        <nav class="nav" aria-label="Primary">
+          <a class="nav__link" href="#home" data-route="home" data-i18n="navHome">Kezdőlap</a>
+          <a class="nav__link" href="#privacy" data-route="privacy" data-i18n="navPrivacy">Adatkezelési tájékoztató</a>
+          <a class="nav__link" href="#terms" data-route="terms" data-i18n="navTerms">Felhasználási feltételek</a>
+        </nav>
 
-    <div class="header-actions">
-  <div class="lang" aria-label="Language switch">
-    <button class="btn btn-ghost btn-sm" type="button" data-lang="hu">HU</button>
-    <button class="btn btn-ghost btn-sm" type="button" data-lang="en">EN</button>
-  </div>
+        <div class="header__actions">
+          <button class="btn btn--ghost" id="themeBtn" type="button" aria-label="Theme toggle">🌙</button>
 
-  <button class="btn btn-ghost" id="themeBtn" aria-label="Theme toggle">🌙</button>
-
-  <button class="btn btn-ghost burger" id="burger" aria-label="Menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-
- <!-- <a class="btn btn-primary" href="#contact" data-i18n="cta.quote">Kérj ajánlatot</a> -->
-</div>
-<div class="mobile-nav" id="mobileNav" aria-hidden="true">
-  <div class="mobile-sheet" role="dialog" aria-modal="true" aria-label="Menu">
-    <div class="mobile-sheet-head">
-      <div class="mobile-sheet-title" data-i18n="menu.title">Menü</div>
-      <button class="btn btn-ghost btn-sm" id="closeMobileNav" type="button" aria-label="Close">✕</button>
-    </div>
-
-    <div class="mobile-links">
-      <a href="#services" data-i18n="nav.services">Szolgáltatások</a>
-      <a href="#projects" data-i18n="nav.projects">Projektek</a>
-      <a href="#about" data-i18n="nav.about">Rólam</a>
-      <a href="#contact" data-i18n="nav.contact">Kapcsolat</a>
-    </div>
-
-    <div class="mobile-divider"></div>
-
-    <div class="mobile-links">
-      <a href="privacy_policies.html" data-i18n="nav.privacy">Adatkezelési tájékoztató</a>
-      <a href="terms.html" data-i18n="nav.terms">Feltételek</a>
-      <a href="support.html" data-i18n="nav.support">Támogatás</a>
-    </div>
-
-    <div class="mobile-controls">
-      <div class="lang" aria-label="Language switch">
-        <button class="btn btn-ghost btn-sm" type="button" data-lang="hu">HU</button>
-        <button class="btn btn-ghost btn-sm" type="button" data-lang="en">EN</button>
+          <div class="lang">
+            <button
+              class="btn btn--ghost lang__btn"
+              id="langBtn"
+              type="button"
+              aria-haspopup="menu"
+              aria-expanded="false"
+            >
+              <span id="langLabel">HU</span>
+              <span class="lang__caret">▾</span>
+            </button>
+            <div class="lang__menu" id="langMenu" role="menu" aria-label="Language">
+              <button class="lang__item" role="menuitem" type="button" data-lang="hu">Magyar (HU)</button>
+              <button class="lang__item" role="menuitem" type="button" data-lang="en">English (EN)</button>
+            </div>
+          </div>
+        </div>
       </div>
+    </header>
 
-      <button class="btn btn-ghost" id="themeBtnMobile" type="button" aria-label="Theme toggle">🌙</button>
-    </div>
-
-  <!-- <a class="btn btn-primary mobile-cta" href="#contact" data-i18n="cta.quote">Kérj ajánlatot</a> -->
-  </div>
-</div>
-</header>
-
-    <!-- Hero -->
-    <main>
-      <section class="hero">
-        <div class="container hero-inner">
-          <div class="hero-left">
-            <div class="pill">
-              <span class="dot"></span>
-              <span data-i18n="hero.pill">Modern web • app • automatizálás</span>
-            </div>
-
-            <h1>
-              <span class="h1-top" data-i18n="hero.h1a">Buildeljünk</span>
-              <span class="h1-glow" data-i18n="hero.h1b">menő</span>
-              <span class="h1-top" data-i18n="hero.h1c">rendszereket.</span>
-            </h1>
-
-            <p class="lead" data-i18n="hero.lead">
-              Horvath Systems — gyors, tiszta és skálázható megoldások. Weboldalak, admin felületek, mobil appok,
-              integrációk, automatizálás.
-            </p>
-
-            <div class="cta">
-              <a class="btn btn-primary" href="#projects" data-i18n="cta.work">Nézd a munkáim</a>
-              <a class="btn btn-ghost" href="#services" data-i18n="cta.what">Mit csinálok?</a>
-            </div>
-
-            <div class="stats">
-              <div class="stat">
-                <span class="stat-num" data-count="24">0</span>
-                <span class="stat-label">hónap+ projekt tapasztalat</span>
-              </div>
-              <div class="stat">
-                <span class="stat-num" data-count="12">0</span>
-                <span class="stat-label">aktív tech stack elem</span>
-              </div>
-              <div class="stat">
-                <span class="stat-num" data-count="99">0</span>
-                <span class="stat-label">% “clean” vibe</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-right">
-            <div class="hero-card">
-              <div class="hero-card-top">
-                <span class="chip">Status</span>
-                <span class="chip chip-good">Available</span>
-              </div>
-
-              <div class="logo-wrap">
-                <img src="assets/logo.png" alt="Horvath Systems" />
-              </div>
-
-              <div class="hero-card-bottom">
-                <div class="mini">
-                  <span class="mini-k">Specialty</span>
-                  <span class="mini-v">Systems • UI • Automation</span>
-                </div>
-                <div class="mini">
-                  <span class="mini-k">Delivery</span>
-                  <span class="mini-v">Fast &amp; clean</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="floating">
-              <div class="float-item">⚡ Performance</div>
-              <div class="float-item">🛡️ Security</div>
-              <div class="float-item">🔌 Integrations</div>
-              <div class="float-item">📱 Mobile</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Services -->
-      <section class="section" id="services">
-        <div class="container">
-          <div class="section-head">
-            <h2 data-i18n="services.title">Szolgáltatások</h2>
-            <p>Olyan megoldásokat építek, amik gyorsak, stabilak, és jól néznek ki.</p>
-          </div>
-
-          <div class="cards">
-            <article class="card">
-              <div class="card-icon">🌐</div>
-              <h3>Web fejlesztés</h3>
-              <p>Landing, portfólió, céges site, admin dashboard — modern UI, gyors betöltés, SEO alapok.</p>
-              <ul class="tags">
-                <li>HTML/CSS/JS</li>
-                <li>React</li>
-                <li>API</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <div class="card-icon">📱</div>
-              <h3>Mobil app</h3>
-              <p>Flutter alapú appok, export/import, offline tárolás, QR/scan, beállítások, multi-nyelv.</p>
-              <ul class="tags">
-                <li>Flutter</li>
-                <li>Android</li>
-                <li>iOS</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <div class="card-icon">⚙️</div>
-              <h3>Automatizálás</h3>
-              <p>Scriptek, folyamatok, integrációk, értesítések — hogy kevesebb legyen a kézi meló.</p>
-              <ul class="tags">
-                <li>Python</li>
-                <li>Windows</li>
-                <li>Webhooks</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <div class="card-icon">🔐</div>
-              <h3>Stabilitás &amp; hardening</h3>
-              <p>Alap biztonsági beállítások, hibakeresés, teljesítmény tuning, deploy és karbantartás.</p>
-              <ul class="tags">
-                <li>Deploy</li>
-                <li>Logs</li>
-                <li>Monitoring</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects -->
-      <section class="section" id="projects">
-        <div class="container">
-          <div class="section-head">
-            <h2 data-i18n="projects.title">Projektek</h2>
-          </div>
-
-          <div class="projects">
-            <article class="project">
-              <div class="project-top">
-                <span class="badge">Featured</span>
-                <span class="muted">2026</span>
-              </div>
-              <h3>Könyvkezelő (Flutter)</h3>
-              <p>Import/Export, QR scan, local storage, HU/EN nyelv — letisztult UI és gyors workflow.</p>
-              <div class="project-actions">
-                <a class="btn btn-ghost btn-sm" href="#" aria-label="Demo link">Demo</a>
-                <a class="btn btn-primary btn-sm" href="#" aria-label="GitHub link">GitHub</a>
-              </div>
-            </article>
-
-            <article class="project">
-              <div class="project-top">
-                <span class="badge">Systems</span>
-                <span class="muted">2026</span>
-              </div>
-              <h3>Automation Toolkit</h3>
-              <p>Windows toolok: tray ikon, config reload, log viewer, értesítések — “set and forget”.</p>
-              <div class="project-actions">
-                <a class="btn btn-ghost btn-sm" href="#">Részletek</a>
-                <a class="btn btn-primary btn-sm" href="#">GitHub</a>
-              </div>
-            </article>
-
-            <article class="project">
-              <div class="project-top">
-                <span class="badge">Web</span>
-                <span class="muted">2026</span>
-              </div>
-              <h3>Modern landing + dashboard</h3>
-              <p>Sötét neon design, kártyák, statisztikák, animációk, reszponzív layout — “mai” feeling.</p>
-              <div class="project-actions">
-                <a class="btn btn-ghost btn-sm" href="#">Demo</a>
-                <a class="btn btn-primary btn-sm" href="#">GitHub</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- About -->
-      <section class="section" id="about">
-        <div class="container about">
-          <div class="about-left">
-            <h2 data-i18n="about.title">Rólam</h2>
-            <p>
-              “Build clean. Ship fast.” — szeretem a jól átlátható, stabil megoldásokat. Fontos: UI minőség,
-              teljesítmény és a karbantarthatóság.
-            </p>
-
-            <div class="skills">
-              <span>Flutter</span>
-              <span>Dart</span>
-              <span>JavaScript</span>
-              <span>HTML/CSS</span>
-              <span>Python</span>
-              <span>REST API</span>
-              <span>Git/GitHub</span>
-              <span>Deploy</span>
-            </div>
-
-            <div class="about-actions">
-              <a class="btn btn-primary" href="#contact">Dolgozzunk együtt</a>
-            </div>
-          </div>
-
-          <div class="about-right">
-            <div class="glass">
-              <div class="glass-row">
-                <span class="k">Brand</span>
-                <span class="v">Horvath Systems</span>
-              </div>
-              <div class="glass-row">
-                <span class="k">Focus</span>
-                <span class="v">Systems • UI • Automation</span>
-              </div>
-              <div class="glass-row">
-                <span class="k">Style</span>
-                <span class="v">Modern • Dark • Neon</span>
-              </div>
-              <div class="glass-row">
-                <span class="k">Location</span>
-                <span class="v">HU / Remote</span>
-              </div>
-            </div>
-
-            <div class="signature">
-              <img src="assets/logo.png" alt="" />
-              <div>
-                <div class="sig-name">HORVATH SYSTEMS</div>
-                <div class="sig-sub">Portfolio / Landing</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section class="section" id="contact">
-        <div class="container">
-          <div class="section-head">
-            <h2 data-i18n="contact.title">Kapcsolat</h2>
-          </div>
-
-          <div class="contact">
-            <div class="contact-card">
-              <h3>Gyors elérhetőség</h3>
-              <p class="muted">
-                Email: <a href="mailto:Horvath-Systems@proton.me">Horvath-Systems@proton.me</a><br />
-                GitHub: <a href="#" target="_blank" rel="noreferrer">github.com/horvath-systems</a>
+    <main id="content" class="main">
+      <div class="container">
+        <!-- HERO / HOME -->
+        <section class="page" id="page-home" data-page="home">
+          <div class="hero">
+            <div class="hero__left">
+              <div class="pill" data-i18n="pill">Portfólió</div>
+              <h1 class="hero__title" data-i18n="homeTitle">Horvath-Systems</h1>
+              <p class="hero__subtitle" data-i18n="homeSubtitle">
+                Letisztult, modern webes jelenlét — fókuszban a minőség, átláthatóság és megbízhatóság.
               </p>
 
-              <div class="contact-actions">
-                <a
-                  class="btn btn-primary"
-                  href="mailto:Horvath-Systems@proton.me?subject=Ajánlatkérés%20—%20Horvath%20Systems"
-                >
-                  Email küldése
-                </a>
-                <button class="btn btn-ghost" id="copyBtn" data-copy="Horvath-Systems@proton.me">Email másolása</button>
+              <div class="hero__cta">
+                <a class="btn btn--primary" href="#privacy" data-i18n="ctaPrivacy">Privacy Policy</a>
+                <a class="btn btn--secondary" href="#terms" data-i18n="ctaTerms">Felhasználási feltételek</a>
               </div>
 
-              <div class="toast" id="toast" role="status" aria-live="polite"></div>
+              <div class="meta">
+                <div class="meta__item">
+                  <span class="meta__label" data-i18n="metaFocusLabel">Fókusz</span>
+                  <span class="meta__value" data-i18n="metaFocusValue">Stabil, karbantartható megoldások</span>
+                </div>
+                <div class="meta__item">
+                  <span class="meta__label" data-i18n="metaStackLabel">Stack</span>
+                  <span class="meta__value" data-i18n="metaStackValue">Web • Mobil • Integráció</span>
+                </div>
+              </div>
             </div>
 
-            <div class="contact-card alt">
-              <h3>Mit írj bele?</h3>
-              <ul class="checklist">
-                <li>Mit szeretnél (web/app/automatizálás)?</li>
-                <li>Határidő és költségkeret (ha van).</li>
-                <li>Van-e design / minta / referencia?</li>
-                <li>Kapcsolat: email / Discord.</li>
-              </ul>
-              <div class="mini-note">24 órán belül általában válaszolok.</div>
+            <div class="hero__right">
+              <div class="card card--glow">
+                <h2 class="card__title" data-i18n="aboutTitle">Röviden</h2>
+                <p class="card__text" data-i18n="aboutText">
+                  A Horvath-Systems célja: professzionális, modern felhasználói élmény és tiszta, jól skálázható kód.
+                </p>
+
+                <div class="divider"></div>
+
+                <h3 class="card__subtitle" data-i18n="contactTitle">Kapcsolat</h3>
+
+                <div class="contact">
+                  <a class="contact__item" href="mailto:Horvath-Systems@proton.me" aria-label="Email">
+                    <span class="contact__icon">✉️</span>
+                    <span class="contact__text" data-i18n="contactEmail">Email: Horvath-Systems@proton.me</span>
+                  </a>
+                  <a
+                    class="contact__item"
+                    href="https://github.com/Horvath-Systems"
+                    aria-label="GitHub"
+                    target="_blank"
+                  >
+                    <span class="contact__icon">💻</span>
+                    <span class="contact__text" data-i18n="contactGithub">GitHub: /Horvath-Systems</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="container footer-inner">
-          <div class="footer-left">
-            <img src="assets/logo.png" alt="" />
-            <div>
-              <div class="footer-title">HORVATH SYSTEMS</div>
-              <div class="footer-sub">Modern Systems &amp; Software</div>
+        <!-- PRIVACY -->
+        <section class="page" id="page-privacy" data-page="privacy" hidden>
+          <div class="pagehead">
+            <div class="pill" data-i18n="privacyBadge">Legal • Adatvédelem</div>
+            <h1 class="pagehead__title" data-i18n="privacyTitle">Adatkezelési tájékoztató</h1>
+
+            <div class="hero__cta">
+              <span class="btn btn--ghost" data-i18n="privacyTag1">Effective: Anytime</span>
+              <span class="btn btn--ghost" data-i18n="privacyTag2">No data collection</span>
             </div>
           </div>
 
-          <div class="footer-right">
-            <a href="#services" data-i18n="footer.services">Services</a>
-            <span class="sep">•</span>
-            <a href="#projects" data-i18n="footer.projects">Projects</a>
-            <span class="sep">•</span>
-            <a href="#contact" data-i18n="footer.contact">Contact</a>
-            <span class="sep">•</span>
-            <a href="privacy_policies.html" data-i18n="nav.privacy">Privacy Policy</a>
+          <article class="legal">
+            <p class="legal__lead"><strong data-i18n="privacyLead">Privacy Policy – Book Manager</strong></p>
+
+            <p data-i18n="privacyText1">Ez az alkalmazás nem gyűjt, nem tárol, és nem oszt meg személyes adatot.</p>
+
+            <p data-i18n="privacyText2">
+              A felhasználó által megadott adatok (pl. könyvcím, szerző, ISBN) kizárólag a felhasználó eszközén, helyben
+              kerülnek tárolásra.
+            </p>
+
+            <p data-i18n="privacyText3">
+              Az alkalmazás nem használ analitikát, trackinget, hirdetést, vagy harmadik féltől származó adatgyűjtő
+              szolgáltatásokat.
+            </p>
+
+            <p data-i18n="privacyText4">Felhasználói fiók vagy regisztráció nem szükséges.</p>
+
+            <p>
+              <strong data-i18n="privacyContactTitle">Kapcsolat:</strong><br />
+              <span data-i18n="privacyContactText">Kérdés esetén írj ide:</span>
+              <a href="mailto:Horvath-Systems@proton.me" data-i18n="privacyContactEmail">Horvath-Systems@proton.me</a>
+            </p>
+          </article>
+        </section>
+
+        <!-- TERMS -->
+        <section class="page" id="page-terms" data-page="terms" hidden>
+          <div class="pagehead">
+            <div class="pill" data-i18n="termsBadge">Legal • Feltételek</div>
+            <h1 class="pagehead__title" data-i18n="termsTitle">Felhasználási feltételek</h1>
+
+            <div class="hero__cta">
+              <span class="btn btn--ghost" data-i18n="termsTag1">Effective: Anytime</span>
+              <span class="btn btn--ghost" data-i18n="termsTag2">Local use only</span>
+            </div>
           </div>
-        </div>
-        <div class="container footer-bottom">
-          <span>© <span id="year"></span> Horvath-Systems. All rights reserved.</span>
-        </div>
-      </footer>
+
+          <article class="legal">
+            <p class="legal__lead">
+              <strong data-i18n="termsLead">Terms of Use – Book Manager</strong>
+            </p>
+
+            <p data-i18n="termsText1">A Book Manager alkalmazás kizárólag személyes használatra készült.</p>
+
+            <p data-i18n="termsText2">
+              Az alkalmazásban tárolt adatok kezelése teljes mértékben a felhasználó felelőssége.
+            </p>
+
+            <p data-i18n="termsText3">
+              Az alkalmazás fejlesztője nem vállal felelősséget adatvesztésért, hibás működésből eredő károkért, vagy a
+              felhasználó által helytelenül megadott adatok következményeiért.
+            </p>
+
+            <p data-i18n="termsText4">
+              Az alkalmazás módosítása, visszafejtése, vagy jogosulatlan terjesztése nem megengedett.
+            </p>
+
+            <p data-i18n="termsText5">
+              Az alkalmazás előzetes értesítés nélkül frissíthető, módosítható, vagy megszüntethető.
+            </p>
+
+            <p>
+              <strong data-i18n="termsContactTitle">Kapcsolat:</strong><br />
+              <span data-i18n="termsContactText">Kérdés esetén írj ide:</span>
+              <a href="mailto:Horvath-Systems@proton.me" data-i18n="termsContactEmail">Horvath-Systems@proton.me</a>
+            </p>
+          </article>
+        </section>
+      </div>
     </main>
 
-    <script src="script.js"></script>
-  
-    <!-- Mobile Drawer -->
-    <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true">
-      <div class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Menu">
-        <div class="mobile-drawer-head">
-          <div class="mobile-drawer-title" data-i18n="menu.title">Menü</div>
-          <button class="btn btn-ghost btn-sm" type="button" id="closeMobileNav" aria-label="Close">✕</button>
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__left">
+          <span class="footer__brand">Horvath-Systems</span>
+          <span class="footer__sep">•</span>
+          <span data-i18n="footerText">Minden jog fenntartva.</span>
         </div>
 
-        <div class="mobile-drawer-body">
-          <div class="mobile-section">
-            <div class="mobile-section-title" data-i18n="menu.site">Oldal</div>
-            <a class="mobile-link" href="#services" data-i18n="nav.services">Szolgáltatások</a>
-            <a class="mobile-link" href="#projects" data-i18n="nav.projects">Projektek</a>
-            <a class="mobile-link" href="#about" data-i18n="nav.about">Rólam</a>
-            <a class="mobile-link" href="#contact" data-i18n="nav.contact">Kapcsolat</a>
-          </div>
-
-          <div class="mobile-section">
-            <div class="mobile-section-title" data-i18n="menu.legal">Jogi</div>
-            <a class="mobile-link" href="privacy_policies.html" data-i18n="nav.privacy">Adatkezelési tájékoztató</a>
-            <a class="mobile-link" href="terms.html" data-i18n="nav.terms">Felhasználási feltételek</a>
-            <a class="mobile-link" href="support.html" data-i18n="nav.support">Támogatás</a>
-          </div>
-
-          <div class="mobile-controls">
-            <div class="lang" aria-label="Language switch">
-              <button class="btn btn-ghost btn-sm" type="button" data-lang="hu">HU</button>
-              <button class="btn btn-ghost btn-sm" type="button" data-lang="en">EN</button>
-            </div>
-            <button class="btn btn-ghost" id="themeBtnMobile" type="button" aria-label="Theme toggle">🌙</button>
-          </div>
-
-        <!-- <a class="btn btn-primary mobile-cta" href="#contact" data-i18n="cta.quote">Kérj ajánlatot</a>-->
+        <div class="footer__right">
+          <span>© <span id="year"></span></span>
+          <span class="footer__sep">•</span>
+          <a href="#privacy" class="footer__link" data-i18n="footerPrivacy">Privacy</a>
+          <a href="#terms" class="footer__link" data-i18n="footerTerms">Terms</a>
         </div>
       </div>
-    </div>
+    </footer>
 
+    <script src="js/app.js"></script>
   </body>
 </html>
